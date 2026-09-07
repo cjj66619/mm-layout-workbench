@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+layout/
+*.docx#
+~$*.docx
+.smoke_tmp/

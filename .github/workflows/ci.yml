@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python deps
+        run: python -m pip install --upgrade pip python-docx pyyaml pymupdf
+
+      - name: Install pandoc
+        run: |
+          curl -sSL -o pandoc.deb https://github.com/jgm/pandoc/releases/download/3.6.4/pandoc-3.6.4-1-amd64.deb
+          sudo dpkg -i pandoc.deb
+          pandoc --version | head -1
+
+      - name: Byte-compile
+        run: python -m compileall -q .agents/skills scripts
+
+      # 不装 LibreOffice：smoke 用 compose --no-pdf，PDF 层检查跳过
+      - name: Smoke test
+        run: python scripts/smoke_test.py

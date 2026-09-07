@@ -1,0 +1,118 @@
+{
+  "_comment": "华为杯研究生数学建模竞赛 Word 模板契约；oxml_utils.py 常量的文档镜像。改模板时同步改两处。",
+  "template": "_references/template/hwb_template.docx",
+  "page": {
+    "size": "A4",
+    "width_twips": 11906,
+    "height_twips": 16838,
+    "margin_twips": {
+      "top": 1418,
+      "bottom": 1418,
+      "left": 1418,
+      "right": 1418
+    },
+    "header_distance_twips": 851,
+    "footer_distance_twips": 992,
+    "text_width_twips": 9070
+  },
+  "fonts": {
+    "body_cjk": "宋体",
+    "body_latin": "Times New Roman",
+    "heading_cjk": "黑体",
+    "kai": "楷体",
+    "li": "隶书",
+    "code": "Consolas",
+    "body_size_pt": 12,
+    "table_caption_size_pt": 11,
+    "code_size_pt": 9
+  },
+  "style_ids": {
+    "normal": "a4",
+    "h1": "1",
+    "h2": "2",
+    "h3": "3",
+    "table_text": "a9",
+    "table_caption": "a0",
+    "figure_caption": "a1",
+    "figure": "aff1",
+    "ordered_list": "a3",
+    "references": "a",
+    "three_line_table": "afb",
+    "equation_table": "afe",
+    "code_table": "aff0",
+    "toc_heading": "TOC",
+    "toc1": "TOC1",
+    "toc2": "TOC2",
+    "toc3": "TOC3",
+    "header": "af0",
+    "footer": "ae",
+    "inline_code_char": "VerbatimChar"
+  },
+  "numbering": {
+    "headings_num_id": 1,
+    "headings_format": [
+      "一、",
+      "1.1",
+      "1.1.1"
+    ],
+    "ordered_list_num_id": 3,
+    "ordered_list_abstract_num": 4,
+    "ordered_list_format": [
+      "(%1)",
+      "%2)",
+      "%3."
+    ],
+    "references_num_id": 4,
+    "references_format": "[%1]",
+    "note": "标题编号绑定在样式 1/2/3 的 pPr/numPr 上，正文段落不带 numPr；参考文献/附录标题用 numId 0 关闭编号；每个 (1)(2) 列表新建一个 num 实例以便重新计数"
+  },
+  "structure": {
+    "cover": "模板封面原样保留（年份/学校/队号由用户填写，工作流不改）",
+    "abstract_page": "回填题目、摘要正文、关键词（00_abstract.md 的 **关键词：** 行）",
+    "toc": "模板 sdt 目录，深度 1–3，页码由 LibreOffice 渲染定位回填，Word 中 F9 可重算",
+    "sections": [
+      "正文",
+      "参考文献",
+      "附录"
+    ],
+    "figure_caption_position": "below",
+    "table_caption_position": "above",
+    "equation": "三栏表居中，右栏 (n) 编号",
+    "code_block": "代码清单表，Consolas，允许折行"
+  },
+  "table_fit": {
+    "font_ladder_pt": [
+      12,
+      10.5,
+      9
+    ],
+    "line_spacing_twips": [
+      360,
+      320,
+      280
+    ],
+    "cell_pad_twips": 216,
+    "tight_pad_twips": 80,
+    "comfy_em": 8,
+    "col_min_twips": 560,
+    "short_table_rows": 8,
+    "statuses": [
+      "fit",
+      "wrap",
+      "tight",
+      "overflow",
+      "merged"
+    ],
+    "auto_landscape": false,
+    "three_line": {
+      "top_bottom_pt": 1.5,
+      "header_bottom_pt": 0.5
+    }
+  },
+  "table_markers": {
+    "ordinary": "hwb-table",
+    "equation": "hwb-equation",
+    "code": "hwb-code",
+    "note": "写在 tblPr/tblCaption；layout-lint 只检查 hwb-table"
+  }
+}
