@@ -240,7 +240,9 @@ def lint_tables(body, lint: Lint, compose_tables: list[dict]) -> None:
         rows = t.findall(qn("w:tr"))
         if len(rows) > 8:
             cell_ps = [p for tr in rows for p in tr.iter(qn("w:p"))]
-            kn = sum(1 for p in cell_ps if p.find(f"{qn('w:pPr')}/{qn('w:keepNext')}") is not None)
+            kn = sum(1 for p in cell_ps
+                     if (k := p.find(f"{qn('w:pPr')}/{qn('w:keepNext')}")) is not None
+                     and _attr(k, "w:val") not in ("0", "false", "off"))
             if kn == len(cell_ps):
                 keep_all.append(f"表{i}")
     lint.check(not too_wide, f"{len(tables)} 张三线表宽度均 ≤ 版心 {TEXT_W}", f"超出版心：{too_wide[:5]}")

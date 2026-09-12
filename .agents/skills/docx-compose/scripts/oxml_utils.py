@@ -158,9 +158,9 @@ def para_props(pp, *, jc: str | None = None, first_line_chars: int | None = None
                line: int | None = None, line_rule: str | None = None, keep_next: bool | None = None,
                keep_lines: bool | None = None) -> None:
     if keep_next is True:
-        child(pp, "w:keepNext")
+        child(pp, "w:keepNext").attrib.pop(qn("w:val"), None)
     elif keep_next is False:
-        clear(pp, "w:keepNext")
+        child(pp, "w:keepNext", val=0)  # 显式关闭，覆盖表格样式继承的 keepNext
     if keep_lines is True:
         child(pp, "w:keepLines")
     elif keep_lines is False:
